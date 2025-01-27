@@ -1,4 +1,4 @@
-namespace: kasten-io
+defaultNamespace: kasten-io
 helm: 
   releaseName: k10
   chart: k10
