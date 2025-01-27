@@ -1,7 +1,7 @@
 namespace: kasten-io
 helm: 
   releaseName: k10
-  chart: kasten/k10
+  chart: k10
   repo: https://charts.kasten.io
   values:
     persistence: 
