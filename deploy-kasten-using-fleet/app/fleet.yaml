@@ -1,7 +1,7 @@
 namespace: kasten-io
 helm: 
   releaseName: k10
-  chart: https://charts.rancher.io
+  chart: https://charts.kasten.io
   values:
     persistence: 
       enabled: true
