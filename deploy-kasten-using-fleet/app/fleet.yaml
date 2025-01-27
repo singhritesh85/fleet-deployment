@@ -3,7 +3,6 @@ helm:
   releaseName: k10
   chart: k10
   repo: kasten
-  url: https://charts.kasten.io
   values:
     persistence: 
       enabled: true
