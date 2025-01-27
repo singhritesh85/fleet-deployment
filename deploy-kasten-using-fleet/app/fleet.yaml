@@ -1,1 +1,10 @@
-
+namespace: kasten-io
+helm: 
+  releaseName: k10
+  chart: https://charts.rancher.io
+  values:
+    persistence: 
+      enabled: true
+    auth:
+      tokenAuth:
+        enabled: true
