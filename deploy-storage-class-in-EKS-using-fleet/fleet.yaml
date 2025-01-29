@@ -1,0 +1,26 @@
+defaultNamespace: default
+helm:
+  releaseName: ebs-sc
+  repo: https://github.com/kubernetes-sigs/aws-ebs-csi-driver.git
+  chart: charts/aws-ebs-csi-driver
+  version: v1.39.0
+targetCustomizations:
+- name: EKS-CSI
+  helm:
+    values:
+    persistence: 
+      enabled: true
+      storageClassName: "managed-csi"
+      accessModes:
+        - ReadWriteOnce
+      size: 2Gi
+    grafana.ini:
+      auth:
+        disable_login_form: false
+      auth.anonymous:
+        enabled: false
+      auth.basic:  
+        password_policy: true
+  clusterSelector:
+    matchLabels:
+      AKS: true
