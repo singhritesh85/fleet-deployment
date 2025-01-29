@@ -4,9 +4,45 @@ helm:
   repo: https://charts.rancher.io
   chart: rancher-monitoring
   version: 104.1.0+up57.0.3
-  values:
+targetCustomizations:
+- name: AKS
+  helm:
+    values:
     persistence: 
       enabled: true
+      storageClassName: "managed-csi"
+      accessModes:
+        - ReadWriteOnce
+      size: 2Gi
+    grafana.ini:
+      auth:
+        disable_login_form: false
+      auth.anonymous:
+        enabled: false
+      auth.basic:  
+        password_policy: true
+  clusterSelector:
+    matchLabels:
+      AKS: true
+- name: EKS
+  helm:
+    values:
+    persistence: 
+      enabled: true
+      storageClassName: "ebs-sc"
+      accessModes:
+        - ReadWriteOnce
+      size: 2Gi
+    grafana.ini:
+      auth:
+        disable_login_form: false
+      auth.anonymous:
+        enabled: false
+      auth.basic:  
+        password_policy: true
+  clusterSelector:
+    matchLabels:
+      EKS: true
 diff:
   comparePatches:
     - apiVersion: admissionregistration.k8s.io/v1
