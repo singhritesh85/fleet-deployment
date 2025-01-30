@@ -45,6 +45,7 @@ targetCustomizations:
         enabled: false
         org_role: Editor
       auth.basic:  
+        enabled: true
         password_policy: true
   clusterSelector:
     matchLabels:
