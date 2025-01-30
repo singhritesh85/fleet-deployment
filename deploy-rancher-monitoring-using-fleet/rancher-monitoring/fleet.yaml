@@ -7,6 +7,14 @@ targetCustomizations:
     chart: rancher-monitoring
     version: 104.1.0+up57.0.3
     values:
+      storage:
+        volumeClaimTemplate:
+          spec:
+            storageClassName: ebs-sc
+            accessModes: ["ReadWriteOnce"]
+            resources:
+              requests:
+                storage: 5Gi
       grafana:
         grafana.ini:
           users:
