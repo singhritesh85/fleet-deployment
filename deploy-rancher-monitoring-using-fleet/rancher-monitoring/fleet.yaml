@@ -34,11 +34,11 @@ targetCustomizations:
         volumeClaimTemplate:
           spec:
             storageClassName: "ebs-sc"
-              accessModes: ["ReadWriteOnce"]
-              resources:
-                requests:
-                  storage: 2Gi
-              selector: {}
+            accessModes: ["ReadWriteOnce"]
+            resources:
+              requests:
+                storage: 2Gi
+            selector: {}
       grafana:
         persistence: 
           enabled: true
