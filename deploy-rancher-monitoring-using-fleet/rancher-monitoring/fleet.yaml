@@ -1,20 +1,33 @@
 defaultNamespace: cattle-monitoring-system
+helm:
+  releaseName: rancher-monitoring
+  repo: https://charts.rancher.io
+  chart: rancher-monitoring
+  version: 104.1.0+up57.0.3
 targetCustomizations:
 - name: AKS
   helm:
-    releaseName: rancher-monitoring
-    repo: https://charts.rancher.io
-    chart: rancher-monitoring
-    version: 104.1.0+up57.0.3
+    values:
+      storage:
+        volumeClaimTemplate:
+          spec:
+            storageClassName: managed-csi
+            accessModes: ["ReadWriteOnce"]
+            resources:
+              requests:
+                storage: 5Gi
+      grafana:
+        persistence: 
+          enabled: true
+          storageClassName: "ebs-sc"
+          accessModes:
+            - ReadWriteOnce
+          size: 1Gi
   clusterSelector:
     matchLabels:
       AKS: true
 - name: EKS
   helm:
-    releaseName: rancher-monitoring
-    repo: https://charts.rancher.io
-    chart: rancher-monitoring
-    version: 104.1.0+up57.0.3
     values:
       storage:
         volumeClaimTemplate:
