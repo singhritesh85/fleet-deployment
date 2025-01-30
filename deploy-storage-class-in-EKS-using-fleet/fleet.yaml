@@ -1,11 +1,15 @@
 defaultNamespace: default
-helm:
-  releaseName: ebs-sc
-  repo: https://github.com/kubernetes-sigs/aws-ebs-csi-driver.git
-  chart: charts/aws-ebs-csi-driver
-  version: v1.39.0
 targetCustomizations:
-- name: EKS-CSI
+- name: EKS-Cluster
+  yaml:
+     
+  clusterSelector:
+    matchLabels:
+      aws: true
+
+
+
+      
   helm:
     values:
     persistence: 
