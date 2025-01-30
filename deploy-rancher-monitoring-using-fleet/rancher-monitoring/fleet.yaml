@@ -19,7 +19,7 @@ targetCustomizations:
       grafana:
         persistence: 
           enabled: true
-          storageClassName: "ebs-sc"
+          storageClassName: "managed-csi"
           accessModes:
             - ReadWriteOnce
           size: 1Gi
