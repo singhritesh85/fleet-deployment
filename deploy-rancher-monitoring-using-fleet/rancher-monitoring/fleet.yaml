@@ -16,6 +16,7 @@ targetCustomizations:
             resources:
               requests:
                 storage: 2Gi
+            selector: {}
       grafana:
         persistence: 
           enabled: true
@@ -35,8 +36,9 @@ targetCustomizations:
             storageClassName: ebs-sc
               accessModes: ["ReadWriteOnce"]
               resources:
-              requests:
-                storage: 2Gi
+                requests:
+                  storage: 2Gi
+              selector: {}
       grafana:
         persistence: 
           enabled: true
