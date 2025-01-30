@@ -49,15 +49,3 @@ targetCustomizations:
   clusterSelector:
     matchLabels:
       EKS: true
-diff:
-  comparePatches:
-    - apiVersion: admissionregistration.k8s.io/v1
-      kind: MutatingWebhookConfiguration
-      name: rancher-monitoring-admission
-      operations:
-        - {"op":"remove", "path":"/webhooks/0/failurePolicy"}
-    - apiVersion: admissionregistration.k8s.io/v1
-      kind: ValidatingWebhookConfiguration
-      name: rancher-monitoring-admission
-      operations:
-        - {"op":"remove", "path":"/webhooks/0/failurePolicy"}
