@@ -33,7 +33,7 @@ targetCustomizations:
       storageSpec:
         volumeClaimTemplate:
           spec:
-            storageClassName: ebs-sc
+            storageClassName: "ebs-sc"
               accessModes: ["ReadWriteOnce"]
               resources:
                 requests:
