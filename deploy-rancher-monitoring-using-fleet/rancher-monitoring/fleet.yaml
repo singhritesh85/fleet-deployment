@@ -11,12 +11,12 @@ targetCustomizations:
       storageSpec:
         volumeClaimTemplate:
           spec:
-            storageClassName: managed-csi
-            accessModes: ["ReadWriteOnce"]
+            accessModes:
+              - ReadWriteOnce
             resources:
               requests:
                 storage: 2Gi
-            selector: {}
+            storageClassName: "managed-csi"
       grafana:
         persistence: 
           enabled: true
@@ -33,12 +33,12 @@ targetCustomizations:
       storageSpec:
         volumeClaimTemplate:
           spec:
-            storageClassName: "ebs-sc"
-            accessModes: ["ReadWriteOnce"]
+            accessModes:
+              - ReadWriteOnce
             resources:
               requests:
                 storage: 2Gi
-            selector: {}
+            storageClassName: "ebs-sc"
       grafana:
         persistence: 
           enabled: true
