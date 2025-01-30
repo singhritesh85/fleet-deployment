@@ -29,7 +29,7 @@ targetCustomizations:
 - name: EKS
   helm:
     values:
-      storage:
+      storageSpec:
         volumeClaimTemplate:
           spec:
             storageClassName: ebs-sc
