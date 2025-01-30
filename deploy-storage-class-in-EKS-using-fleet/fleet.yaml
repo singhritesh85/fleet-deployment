@@ -6,25 +6,3 @@ targetCustomizations:
   clusterSelector:
     matchLabels:
       aws: true
-
-
-
-      
-  helm:
-    values:
-    persistence: 
-      enabled: true
-      storageClassName: "managed-csi"
-      accessModes:
-        - ReadWriteOnce
-      size: 2Gi
-    grafana.ini:
-      auth:
-        disable_login_form: false
-      auth.anonymous:
-        enabled: false
-      auth.basic:  
-        password_policy: true
-  clusterSelector:
-    matchLabels:
-      AKS: true
