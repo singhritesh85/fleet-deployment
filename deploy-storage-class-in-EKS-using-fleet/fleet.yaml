@@ -2,7 +2,7 @@ defaultNamespace: default
 targetCustomizations:
 - name: EKS-Cluster
   yaml:
-     
+    storage-class: 
   clusterSelector:
     matchLabels:
       aws: true
