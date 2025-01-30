@@ -17,7 +17,7 @@ targetCustomizations:
                 accessModes: ["ReadWriteOnce"]
                 resources:
                   requests:
-                    storage: 50Gi
+                    storage: 2Gi
       grafana:
         persistence: 
           enabled: true
@@ -40,7 +40,7 @@ targetCustomizations:
                 accessModes: ["ReadWriteOnce"]
                 resources:
                   requests:
-                    storage: 50Gi
+                    storage: 2Gi
       grafana:
         persistence: 
           enabled: true
