@@ -8,12 +8,6 @@ targetCustomizations:
     version: 104.1.0+up57.0.3
     values:
       grafana:
-        persistence: 
-          enabled: true
-          storageClassName: "managed-csi"
-          accessModes:
-            - ReadWriteOnce
-          size: 1Gi
         grafana.ini:
           users:
             auto_assign_org_role: Editor
@@ -24,6 +18,12 @@ targetCustomizations:
             org_role: Editor
           auth.basic:  
             password_policy: true
+        persistence: 
+          enabled: true
+          storageClassName: "managed-csi"
+          accessModes:
+            - ReadWriteOnce
+          size: 1Gi
   clusterSelector:
     matchLabels:
       AKS: true
@@ -35,12 +35,6 @@ targetCustomizations:
     version: 104.1.0+up57.0.3
     values:
       grafana:
-        persistence: 
-          enabled: true
-          storageClassName: "ebs-sc"
-          accessModes:
-            - ReadWriteOnce
-          size: 1Gi
         grafana.ini:
           users:
             auto_assign_org_role: Editor
@@ -52,6 +46,12 @@ targetCustomizations:
           auth.basic:  
             enabled: true
             password_policy: true
+        persistence: 
+          enabled: true
+          storageClassName: "ebs-sc"
+          accessModes:
+            - ReadWriteOnce
+          size: 1Gi
   clusterSelector:
     matchLabels:
       EKS: true
