@@ -7,17 +7,15 @@ helm:
 targetCustomizations:
 - name: AKS
   helm:
-    values:
-      prometheus:
-        prometheusSpec: 
-          storageSpec:
-            volumeClaimTemplate:
-              spec:
-                storageClassName: managed-csi
-                accessModes: ["ReadWriteOnce"]
-                resources:
-                  requests:
-                    storage: 2Gi
+    values: 
+      storageSpec:
+        volumeClaimTemplate:
+          spec:
+            storageClassName: managed-csi
+            accessModes: ["ReadWriteOnce"]
+            resources:
+              requests:
+              storage: 2Gi
       grafana:
         persistence: 
           enabled: true
@@ -31,16 +29,14 @@ targetCustomizations:
 - name: EKS
   helm:
     values:
-      prometheus:
-        prometheusSpec: 
-          storageSpec:
-            volumeClaimTemplate:
-              spec:
-                storageClassName: ebs-sc
-                accessModes: ["ReadWriteOnce"]
-                resources:
-                  requests:
-                    storage: 2Gi
+      storageSpec:
+        volumeClaimTemplate:
+          spec:
+            storageClassName: ebs-sc
+              accessModes: ["ReadWriteOnce"]
+              resources:
+              requests:
+                storage: 2Gi
       grafana:
         persistence: 
           enabled: true
