@@ -15,10 +15,13 @@ targetCustomizations:
         - ReadWriteOnce
       size: 2Gi
     grafana.ini:
+      users:
+        auto_assign_org_role: Editor
       auth:
         disable_login_form: false
       auth.anonymous:
         enabled: false
+        org_role: Editor
       auth.basic:  
         password_policy: true
   clusterSelector:
@@ -34,10 +37,13 @@ targetCustomizations:
         - ReadWriteOnce
       size: 2Gi
     grafana.ini:
+      users:
+        auto_assign_org_role: Editor
       auth:
         disable_login_form: false
       auth.anonymous:
         enabled: false
+        org_role: Editor
       auth.basic:  
         password_policy: true
   clusterSelector:
