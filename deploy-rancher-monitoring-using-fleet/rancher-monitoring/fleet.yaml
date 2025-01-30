@@ -8,45 +8,47 @@ targetCustomizations:
 - name: AKS
   helm:
     values:
-      persistence: 
-        enabled: true
-        storageClassName: "managed-csi"
-        accessModes:
-          - ReadWriteOnce
-        size: 2Gi
-      grafana.ini:
-        users:
-          auto_assign_org_role: Editor
-        auth:
-          disable_login_form: false
-        auth.anonymous:
-          enabled: false
-          org_role: Editor
-        auth.basic:  
-          password_policy: true
+      grafana:
+        persistence: 
+          enabled: true
+          storageClassName: "managed-csi"
+          accessModes:
+            - ReadWriteOnce
+          size: 1Gi
+        grafana.ini:
+          users:
+            auto_assign_org_role: Editor
+          auth:
+            disable_login_form: false
+          auth.anonymous:
+            enabled: false
+            org_role: Editor
+          auth.basic:  
+            password_policy: true
   clusterSelector:
     matchLabels:
       AKS: true
 - name: EKS
   helm:
     values:
-      persistence: 
-        enabled: true
-        storageClassName: "ebs-sc"
-        accessModes:
-          - ReadWriteOnce
-        size: 2Gi
-      grafana.ini:
-        users:
-          auto_assign_org_role: Editor
-        auth:
-          disable_login_form: false
-        auth.anonymous:
-          enabled: false
-          org_role: Editor
-        auth.basic:  
+      grafana:
+        persistence: 
           enabled: true
-          password_policy: true
+          storageClassName: "ebs-sc"
+          accessModes:
+            - ReadWriteOnce
+          size: 1Gi
+        grafana.ini:
+          users:
+            auto_assign_org_role: Editor
+          auth:
+            disable_login_form: false
+          auth.anonymous:
+            enabled: false
+            org_role: Editor
+          auth.basic:  
+            enabled: true
+            password_policy: true
   clusterSelector:
     matchLabels:
       EKS: true
