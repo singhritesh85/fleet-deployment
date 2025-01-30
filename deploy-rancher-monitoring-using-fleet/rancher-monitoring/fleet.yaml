@@ -8,7 +8,7 @@ targetCustomizations:
 - name: AKS
   helm:
     values:
-      storage:
+      storageSpec:
         volumeClaimTemplate:
           spec:
             storageClassName: managed-csi
