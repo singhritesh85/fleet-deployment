@@ -5211,7 +5211,7 @@ thanosRuler:
           accessModes: ["ReadWriteOnce"]
           resources:
             requests:
-              storage: 50Gi
+              storage: 2Gi
         selector: {}
 
     ## AlertmanagerConfig define configuration for connecting to alertmanager.
