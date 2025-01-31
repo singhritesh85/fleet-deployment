@@ -1,6 +1,6 @@
 defaultNamespace: default
 targetCustomizations:
-- name: EKS-Cluster
+- name: EKS-Cluster-StorageClass
   yaml:
     storage-class: 
   clusterSelector:
