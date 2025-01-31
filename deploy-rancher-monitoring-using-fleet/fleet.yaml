@@ -1,0 +1,14 @@
+defaultNamespace: cattle-monitoring-system
+targetCustomizations:
+- name: EKS-Cluster
+  yaml:
+    rancher-monitoring-eks: 
+  clusterSelector:
+    matchLabels:
+      EKS: true
+- name: AKS-Cluster
+  yaml:
+    rancher-monitoring-aks: 
+  clusterSelector:
+    matchLabels:
+      AKS: true
