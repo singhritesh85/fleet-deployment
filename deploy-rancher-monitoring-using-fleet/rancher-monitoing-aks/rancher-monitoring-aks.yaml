@@ -529,16 +529,16 @@ grafana:
     auth:
       disable_login_form: false
     auth.anonymous:
-      enabled: true
+      enabled: false
       org_role: Viewer
     auth.basic:
-      enabled: false
+      enabled: true
     dashboards:
       default_home_dashboard_path: /tmp/dashboards/rancher-default-home.json
     security:
       allow_embedding: true
     users:
-      auto_assign_org_role: Viewer
+      auto_assign_org_role: Editor
   ingress:
     annotations: {}
     enabled: false
