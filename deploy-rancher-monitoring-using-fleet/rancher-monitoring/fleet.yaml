@@ -1,0 +1,91 @@
+defaultNamespace: cattle-monitoring-system
+helm:
+  releaseName: rancher-monitoring
+  repo: https://charts.rancher.io
+  chart: rancher-monitoring
+  version: 105.1.2+up61.3.2
+targetCustomizations:
+- name: EKS-Cluster-Monitoring
+  helm:
+    values:
+      grafana:
+        grafana.ini:
+          auth:
+            disable_login_form: false
+          auth.anonymous:
+            enabled: false
+            org_role: Viewer
+          auth.basic:
+            enabled: true
+          dashboards:
+            default_home_dashboard_path: /tmp/dashboards/rancher-default-home.json
+          security:
+            allow_embedding: true
+          users:
+            auto_assign_org_role: Editor
+        persistence:
+          accessModes:
+            - ReadWriteOnce
+          annotations: null
+          enabled: true
+          finalizers: null
+          size: 1Gi
+          storageClassName: ebs-sc
+          subPath: null
+          type: pvc
+      prometheus:
+        prometheusSpec:
+          storageSpec:
+            volumeClaimTemplate:
+              spec:
+                accessModes:
+                  - ReadWriteOnce
+                resources:
+                  requests:
+                    storage: 2Gi
+                storageClassName: ebs-sc
+  clusterSelector:
+    matchLabels:
+      EKS: true
+- name: AKS-Cluster-Monitoring
+  helm:
+    values:
+      grafana:
+        grafana.ini:
+          auth:
+            disable_login_form: false
+          auth.anonymous:
+            enabled: false
+            org_role: Viewer
+          auth.basic:
+            enabled: true
+          dashboards:
+            default_home_dashboard_path: /tmp/dashboards/rancher-default-home.json
+          security:
+            allow_embedding: true
+          users:
+            auto_assign_org_role: Editor
+        persistence:
+          accessModes:
+            - ReadWriteOnce
+          annotations: null
+          enabled: true
+          finalizers: null
+          size: 1Gi
+          storageClassName: managed-csi
+          subPath: null
+          type: pvc
+      prometheus:
+        prometheusSpec:
+          storageSpec:
+            volumeClaimTemplate:
+              spec:
+                accessModes:
+                  - ReadWriteOnce
+                resources:
+                  requests:
+                    storage: 2Gi
+                storageClassName: managed-csi
+  clusterSelector:
+    matchLabels:
+      AKS: true
