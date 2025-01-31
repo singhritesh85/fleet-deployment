@@ -3,7 +3,7 @@ helm:
   releaseName: rancher-monitoring
   repo: https://charts.rancher.io
   chart: rancher-monitoring
-  version: 105.1.2+up61.3.2
+  version: 104.1.0+up57.0.3
 targetCustomizations:
 - name: EKS-Cluster-Monitoring
   helm:
