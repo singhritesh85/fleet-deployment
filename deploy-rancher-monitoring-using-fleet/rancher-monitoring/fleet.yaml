@@ -2,6 +2,7 @@ defaultNamespace: cattle-monitoring-system
 targetCustomizations:
 - name: EKS-Cluster-Monitoring
   helm:
+    releaseName: rancher-monitoring
     values:
       storageClassName: ebs-sc
   clusterSelector:
@@ -9,6 +10,8 @@ targetCustomizations:
       EKS: true
 
 - name: AKS-Cluster-Monitoring
+  helm:
+    releaseName: rancher-monitoring
   clusterSelector:
     matchLabels:
       AKS: true
