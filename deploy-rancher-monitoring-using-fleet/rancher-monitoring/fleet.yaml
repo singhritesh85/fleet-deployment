@@ -1,0 +1,14 @@
+defaultNamespace: cattle-monitoring-system
+targetCustomizations:
+- name: EKS-Cluster-Monitoring
+  helm:
+    values:
+      storageClassName: ebs-sc
+  clusterSelector:
+    matchLabels:
+      EKS: true
+
+- name: AKS-Cluster-Monitoring
+  clusterSelector:
+    matchLabels:
+      AKS: true
