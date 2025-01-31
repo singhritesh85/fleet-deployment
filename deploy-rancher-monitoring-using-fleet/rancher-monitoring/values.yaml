@@ -1456,8 +1456,8 @@ alertmanager:
           accessModes: ["ReadWriteOnce"]
           resources:
             requests:
-              storage: 50Gi
-          selector: {}
+              storage: 2Gi
+       #   selector: {}
 
 
     ## The external URL the Alertmanager instances will be available under. This is necessary to generate correct URLs. This is necessary if Alertmanager is not served from root of a DNS name. string  false
@@ -4468,12 +4468,12 @@ prometheus:
     ##
        volumeClaimTemplate:
          spec:
-           storageClassName: gluster
+           storageClassName: managed-csi
            accessModes: ["ReadWriteOnce"]
            resources:
              requests:
-               storage: 50Gi
-         selector: {}
+               storage: 2Gi
+    #     selector: {}
 
     ## Using tmpfs volume
     ##
@@ -5212,7 +5212,7 @@ thanosRuler:
           resources:
             requests:
               storage: 2Gi
-          selector: {}
+    #      selector: {}
 
     ## AlertmanagerConfig define configuration for connecting to alertmanager.
     ## Only available with Thanos v0.10.0 and higher. Maps to the alertmanagers.config Thanos Ruler arg.
