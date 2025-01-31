@@ -8,7 +8,6 @@ targetCustomizations:
 - name: EKS-Cluster-Monitoring
   helm:
     values:
-      grafana:
         grafana.ini:
           auth:
             disable_login_form: false
@@ -33,24 +32,21 @@ targetCustomizations:
           storageClassName: ebs-sc
           subPath: null
           type: pvc
-      prometheus:
-        prometheusSpec:
-          storageSpec:
-            volumeClaimTemplate:
-              spec:
-                accessModes:
-                  - ReadWriteOnce
-                resources:
-                  requests:
-                    storage: 2Gi
-                storageClassName: ebs-sc
+        storageSpec:
+          volumeClaimTemplate:
+            spec:
+              accessModes:
+                - ReadWriteOnce
+              resources:
+                requests:
+                  storage: 2Gi
+              storageClassName: ebs-sc
   clusterSelector:
     matchLabels:
       EKS: true
 - name: AKS-Cluster-Monitoring
   helm:
     values:
-      grafana:
         grafana.ini:
           auth:
             disable_login_form: false
@@ -75,17 +71,15 @@ targetCustomizations:
           storageClassName: managed-csi
           subPath: null
           type: pvc
-      prometheus:
-        prometheusSpec:
-          storageSpec:
-            volumeClaimTemplate:
-              spec:
-                accessModes:
-                  - ReadWriteOnce
-                resources:
-                  requests:
-                    storage: 2Gi
-                storageClassName: managed-csi
+        storageSpec:
+          volumeClaimTemplate:
+            spec:
+              accessModes:
+                - ReadWriteOnce
+              resources:
+                requests:
+                  storage: 2Gi
+              storageClassName: managed-csi
   clusterSelector:
     matchLabels:
       AKS: true
