@@ -32,6 +32,10 @@ targetCustomizations:
   - name: Local-AKS-Cluster
     helm:
       values:
+        global:
+          cattle:
+            clusterId: local
+            clusterName: local
         grafana:
           grafana.ini:
             auth:
