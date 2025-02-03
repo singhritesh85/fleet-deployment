@@ -58,9 +58,10 @@ targetCustomizations:
             finalizers: null
             enabled: true
         prometheus:
-          externalLabels:
+          prometheusSpec:
+            externalLabels:
               cluster: local
-          storageSpec:
+            storageSpec:
               volumeClaimTemplate:
                 spec:
                   accessModes:
