@@ -13,6 +13,20 @@ helm:
         useExistingSecret: true
         configSecret: alertmanager-rancher-monitoring-alertmanager
     grafana:
+      grafana.ini:
+        users:
+          auto_assign_org_role: Editor
+        auth:
+          disable_login_form: false
+        auth.anonymous:
+          enabled: false
+          org_role: Viewer
+        auth.basic:
+          enabled: true
+        dashboards:
+          default_home_dashboard_path: /tmp/dashboards/rancher-default-home.json
+        security:
+          allow_embedding: true
       persistence:
         accessModes:
           - ReadWriteOnce
