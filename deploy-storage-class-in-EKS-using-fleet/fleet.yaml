@@ -5,4 +5,4 @@ targetCustomizations:
     storage-class: 
   clusterSelector:
     matchLabels:
-      EKS: true
+      clustername: eks-demo-cluster-dev
