@@ -81,6 +81,10 @@ targetCustomizations:
     helm:
       values:
         grafana:
+          global:
+            cattle:
+              clusterId: downstream-cluster
+              clusterName: downstream-cluster
           grafana.ini:
             auth:
               disable_login_form: false
@@ -125,6 +129,10 @@ targetCustomizations:
     helm:
       values:
         grafana:
+          global:
+            cattle:
+              clusterId: eks-demo-cluster-dev 
+              clusterName: eks-demo-cluster-dev
           grafana.ini:
             auth:
               disable_login_form: false
