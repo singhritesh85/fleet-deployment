@@ -77,6 +77,20 @@ targetCustomizations:
     helm:
       values:
         grafana:
+          grafana.ini:
+            auth:
+              disable_login_form: false
+            auth.anonymous:
+              enabled: false
+              org_role: Viewer
+            auth.basic:
+              enabled: true
+            dashboards:
+              default_home_dashboard_path: /tmp/dashboards/rancher-default-home.json
+            security:
+              allow_embedding: true
+            users:
+              auto_assign_org_role: Editor
           persistence:
             accessModes:
               - ReadWriteOnce
@@ -107,6 +121,20 @@ targetCustomizations:
     helm:
       values:
         grafana:
+          grafana.ini:
+            auth:
+              disable_login_form: false
+            auth.anonymous:
+              enabled: false
+              org_role: Viewer
+            auth.basic:
+              enabled: true
+            dashboards:
+              default_home_dashboard_path: /tmp/dashboards/rancher-default-home.json
+            security:
+              allow_embedding: true
+            users:
+              auto_assign_org_role: Editor
           persistence:
             accessModes:
               - ReadWriteOnce
