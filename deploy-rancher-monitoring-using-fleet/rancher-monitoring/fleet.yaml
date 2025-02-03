@@ -89,7 +89,7 @@ targetCustomizations:
             auth:
               disable_login_form: false
             auth.anonymous:
-              enabled: false
+              enabled: true
               org_role: Viewer
             auth.basic:
               enabled: true
@@ -137,7 +137,7 @@ targetCustomizations:
             auth:
               disable_login_form: false
             auth.anonymous:
-              enabled: false
+              enabled: true
               org_role: Viewer
             auth.basic:
               enabled: true
