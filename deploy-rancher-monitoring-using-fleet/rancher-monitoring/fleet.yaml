@@ -3,7 +3,94 @@ helm:
   releaseName: rancher-monitoring
   repo: https://charts.rancher.io
   chart: rancher-monitoring
-  version: 103.2.1+up57.0.3
+  version: 105.1.2+up61.3.2
+  timeoutSeconds: 600
+  values:
+    global:
+      systemDefaultRegistry: ''
+    alertmanager:
+      alertmanagerSpec:
+        useExistingSecret: true
+        configSecret: alertmanager-rancher-monitoring-alertmanager
+    prometheus:
+      prometheusSpec:
+        enableAdminAPI: false
+        evaluationInterval: 1m
+        retentionSize: 5GiB
+        scrapeInterval: 1m
+        listenLocal: true
+        resources:
+          limits:
+            cpu: 1000m
+            memory: 1500Mi
+    prometheusOperator:
+      resources:
+        limits:
+          cpu: 200m
+          memory: 1000Mi
+  targetCustomizations:
+  - name: Local-AKS-Cluster
+    helm:
+      values:
+        grafana:
+          persistence:
+            accessModes:
+              - ReadWriteOnce
+            storageClassName: ma
+            size: '1Gi'
+            subPath: null
+            type: pvc
+            annotations: null
+            finalizers: null
+            enabled: true
+        prometheus:
+          prometheusSpec:
+            externalLabels:
+              cluster: aks-cluster
+            storageSpec:
+              volumeClaimTemplate:
+                spec:
+                  accessModes:
+                    - ReadWriteOnce
+                  resources:
+                    requests:
+                      storage: '2Gi'
+#                  volumeMode: Filesystem
+                  storageClassName: managed-csi
+    clusterSelector:
+      matchLabels:
+        clustername: co-rancher-staging
+  - name: Downstream-EKS-Cluster
+    helm:
+      values:
+        grafana:
+          persistence:
+            accessModes:
+              - ReadWriteOnce
+            storageClassName: ebs-sc
+            size: '1Gi'
+            subPath: null
+            type: pvc
+            annotations: null
+            finalizers: null
+            enabled: true
+        prometheus:
+          prometheusSpec:
+            externalLabels:
+              cluster: co-eks-staging
+            storageSpec:
+              volumeClaimTemplate:
+                spec:
+                  accessModes:
+                    - ReadWriteOnce
+                  resources:
+                    requests:
+                      storage: '2Gi'
+#                  volumeMode: Filesystem
+                  storageClassName: ebs-sc
+    clusterSelector:
+      matchLabels:
+        clustername: co-eks-staging
 diff:
   comparePatches:
     - apiVersion: admissionregistration.k8s.io/v1
