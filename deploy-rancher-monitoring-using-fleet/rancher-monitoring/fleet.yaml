@@ -28,7 +28,7 @@ helm:
         limits:
           cpu: 200m
           memory: 1000Mi
-  targetCustomizations:
+targetCustomizations:
   - name: Local-AKS-Cluster
     helm:
       values:
@@ -72,7 +72,6 @@ helm:
     clusterSelector:
       matchLabels:
         clustername: local              
-  targetCustomizations:
   - name: Downstream-AKS-Cluster1
     helm:
       values:
