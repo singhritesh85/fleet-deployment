@@ -12,6 +12,17 @@ helm:
       alertmanagerSpec:
         useExistingSecret: true
         configSecret: alertmanager-rancher-monitoring-alertmanager
+    grafana:
+      persistence:
+        accessModes:
+          - ReadWriteOnce
+        storageClassName: managed-csi
+        size: '1Gi'
+        subPath: null
+        type: pvc
+        annotations: null
+        finalizers: null
+        enabled: true
     prometheus:
       prometheusSpec:
         enableAdminAPI: false
@@ -23,31 +34,7 @@ helm:
           limits:
             cpu: 1000m
             memory: 1500Mi
-    prometheusOperator:
-      resources:
-        limits:
-          cpu: 200m
-          memory: 1000Mi
-  targetCustomizations:
-  - name: Local-AKS-Cluster
-    helm:
-      values:
-        grafana:
-          persistence:
-            accessModes:
-              - ReadWriteOnce
-            storageClassName: managed-csi
-            size: '1Gi'
-            subPath: null
-            type: pvc
-            annotations: null
-            finalizers: null
-            enabled: true
-        prometheus:
-          prometheusSpec:
-            externalLabels:
-              cluster: aks-cluster
-            storageSpec:
+        storageSpec:
               volumeClaimTemplate:
                 spec:
                   accessModes:
@@ -57,5 +44,3 @@ helm:
                       storage: '2Gi'
 #                  volumeMode: Filesystem
                   storageClassName: managed-csi
-        prometheusOperator:
-          hostNetwork: true
