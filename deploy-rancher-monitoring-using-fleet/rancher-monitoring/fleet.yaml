@@ -41,7 +41,7 @@ targetCustomizations:
             auth:
               disable_login_form: false
             auth.anonymous:
-              enabled: true
+              enabled: false
               org_role: Viewer
             auth.basic:
               enabled: true
