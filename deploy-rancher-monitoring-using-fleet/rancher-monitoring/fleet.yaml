@@ -7,6 +7,9 @@ helm:
   timeoutSeconds: 600
   values:
     global:
+      cattle:
+        clusterId: local
+        clusterName: local
       systemDefaultRegistry: ''
     alertmanager:
       alertmanagerSpec:
@@ -80,10 +83,6 @@ targetCustomizations:
   - name: Downstream-AKS-Cluster1
     helm:
       values:
-        global:
-          cattle:
-            clusterId: downstream-cluster
-            clusterName: downstream-cluster
         grafana:
           grafana.ini:
             auth:
@@ -128,10 +127,6 @@ targetCustomizations:
   - name: Downstream-EKS-Cluster1
     helm:
       values:
-        global:
-          cattle:
-            clusterId: eks-demo-cluster-dev 
-            clusterName: eks-demo-cluster-dev
         grafana:
           grafana.ini:
             auth:
