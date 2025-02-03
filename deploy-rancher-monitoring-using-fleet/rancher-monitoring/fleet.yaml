@@ -60,7 +60,7 @@ targetCustomizations:
         prometheus:
           prometheusSpec:
             externalLabels:
-              cluster: local     ### You need to change it as per your existing Cluster.
+              cluster: local     ### You need to change it as per your existing Cluster Name.
             storageSpec:
               volumeClaimTemplate:
                 spec:
@@ -72,7 +72,7 @@ targetCustomizations:
                   storageClassName: managed-csi
     clusterSelector:
       matchLabels:
-        clustername: local      ### You need to change it as per your existing Cluster.         
+        clustername: local      ### You need to change it as per your existing Cluster Label.         
   - name: Downstream-AKS-Cluster1
     helm:
       values:
@@ -104,7 +104,7 @@ targetCustomizations:
         prometheus:
           prometheusSpec:
             externalLabels:
-              cluster: downstream-cluster       ### You need to change it as per your existing Cluster.
+              cluster: downstream-cluster       ### You need to change it as per your existing Cluster Name.
             storageSpec:
               volumeClaimTemplate:
                 spec:
@@ -116,7 +116,7 @@ targetCustomizations:
                   storageClassName: managed-csi
     clusterSelector:
       matchLabels:
-        clustername: downstream-cluster         ### You need to change it as per your existing Cluster.
+        clustername: downstream-cluster         ### You need to change it as per your existing Cluster Label.
   - name: Downstream-EKS-Cluster1
     helm:
       values:
@@ -148,7 +148,7 @@ targetCustomizations:
         prometheus:
           prometheusSpec:
             externalLabels:
-              cluster: eks-demo-cluster-dev    ### You need to change it as per your existing Cluster.
+              cluster: eks-demo-cluster-dev    ### You need to change it as per your existing Cluster Name.
             storageSpec:
               volumeClaimTemplate:
                 spec:
@@ -160,7 +160,7 @@ targetCustomizations:
                   storageClassName: ebs-sc
     clusterSelector:
       matchLabels:
-        clustername: 	eks-demo-cluster-dev     ### You need to change it as per your existing Cluster.
+        clustername: 	eks-demo-cluster-dev     ### You need to change it as per your existing Cluster Label.
 diff:
   comparePatches:
     - apiVersion: admissionregistration.k8s.io/v1
