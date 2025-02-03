@@ -42,5 +42,4 @@ helm:
                   resources:
                     requests:
                       storage: '2Gi'
-#                  volumeMode: Filesystem
                   storageClassName: managed-csi
