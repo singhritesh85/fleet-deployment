@@ -80,11 +80,11 @@ targetCustomizations:
   - name: Downstream-AKS-Cluster1
     helm:
       values:
+        global:
+          cattle:
+            clusterId: downstream-cluster
+            clusterName: downstream-cluster
         grafana:
-          global:
-            cattle:
-              clusterId: downstream-cluster
-              clusterName: downstream-cluster
           grafana.ini:
             auth:
               disable_login_form: false
@@ -128,11 +128,11 @@ targetCustomizations:
   - name: Downstream-EKS-Cluster1
     helm:
       values:
+        global:
+          cattle:
+            clusterId: eks-demo-cluster-dev 
+            clusterName: eks-demo-cluster-dev
         grafana:
-          global:
-            cattle:
-              clusterId: eks-demo-cluster-dev 
-              clusterName: eks-demo-cluster-dev
           grafana.ini:
             auth:
               disable_login_form: false
