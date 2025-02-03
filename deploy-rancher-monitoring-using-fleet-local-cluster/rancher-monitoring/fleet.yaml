@@ -57,3 +57,5 @@ helm:
                       storage: '2Gi'
 #                  volumeMode: Filesystem
                   storageClassName: managed-csi
+        prometheusOperator:
+          hostNetwork: true
