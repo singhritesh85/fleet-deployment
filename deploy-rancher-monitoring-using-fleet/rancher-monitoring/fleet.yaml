@@ -32,9 +32,10 @@ targetCustomizations:
   - name: Local-AKS-Cluster
     helm:
       values:
+        global:
+          cattle:
+            clusterName: local
         grafana:
-          enabled: true
-          namespaceOverride: ""
           grafana.ini:
             auth:
               disable_login_form: false
