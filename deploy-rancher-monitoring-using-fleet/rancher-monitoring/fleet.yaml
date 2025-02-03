@@ -172,7 +172,7 @@ targetCustomizations:
                   storageClassName: ebs-sc
     clusterSelector:
       matchLabels:
-        clustername: 	eks-demo-cluster-dev     ### You need to change it as per your existing Cluster Label.
+        clustername: eks-demo-cluster-dev     ### You need to change it as per your existing Cluster Label.
 diff:
   comparePatches:
     - apiVersion: admissionregistration.k8s.io/v1
