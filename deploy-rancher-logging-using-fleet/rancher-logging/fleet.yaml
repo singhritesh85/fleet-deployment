@@ -2,5 +2,57 @@ defaultNamespace: cattle-logging-system
 helm:
   repo: https://charts.rancher.io
   chart: rancher-logging
-  version: 104.1.0+up4.8.0           ###100.1.2+up3.17.4
+  version: 105.2.1-rc.1+up4.10.0        ###104.1.0+up4.8.0           ###100.1.2+up3.17.4
   releaseName: rancher-logging
+targetCustomizations:
+- name: Local-AKS-Cluster
+  helm:
+    values:
+      disablePvc: false
+      fluentd:
+        bufferStorageVolume:
+          pvc:
+            spec:
+              accessModes:
+                 - ReadWriteOnce
+              resources:
+                 requests:
+                   storage: 2Gi
+              storageClassName: "managed-csi"
+  clusterSelector:
+      matchLabels:
+        clustername: local      ### You need to change it as per your existing Cluster Label.                
+- name: Downstream-AKS-Cluster1
+  helm:
+    values:
+      disablePvc: false
+      fluentd:
+        bufferStorageVolume:
+          pvc:
+            spec:
+              accessModes:
+                - ReadWriteOnce
+              resources:
+                 requests:
+                   storage: 2Gi
+              storageClassName: "managed-csi"
+  clusterSelector:
+      matchLabels:
+        clustername: downstream-cluster      ### You need to change it as per your existing Cluster Label.        
+- name: Downstream-EKS-Cluster1
+  helm:
+    values:
+      disablePvc: false
+      fluentd:
+        bufferStorageVolume:
+          pvc:
+            spec:
+              accessModes:
+                - ReadWriteOnce
+              resources:
+                requests:
+                  storage: 2Gi
+              storageClassName: "ebs-sc"
+  clusterSelector:
+      matchLabels:
+        clustername: eks-demo-cluster-dev      ### You need to change it as per your existing Cluster Label.           
