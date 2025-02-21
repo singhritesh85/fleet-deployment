@@ -11,6 +11,3 @@ targetCustomizations:
     - kiali
     - prometheus
     - grafana
-dependsOn:
-- name: fleet-deployment-deploy-istio-using-fleet-istio-base       ### Format: <GITREPO-NAME>-<BUNDLE_PATH> with all path separators replaced by "-"
-- name: fleet-deployment-deploy-istio-using-fleet-istio-istiod
