@@ -5,19 +5,19 @@ helm:
 targetCustomizations:
 - name: Install-Istio-Base
   helm:
-    chart: base
+    chart: istio/base
     releaseName: istio-base
 - name: charts/Install-Istiod
   helm:
-    chart: istiod
+    chart: istio/istiod
     releaseName: istiod
 - name: Install-Istioingressgateway
   helm:
-    chart: gateway
+    chart: istio/gateway
     releaseName: istio-ingressgateway
 - name: Install-Istioegressgateway
   helm:
-    chart: gateway
+    chart: istio/gateway
     releaseName: istio-egressgateway
 - name: Install-addons
   yaml:
