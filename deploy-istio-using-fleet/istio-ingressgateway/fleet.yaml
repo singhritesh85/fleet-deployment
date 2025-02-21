@@ -4,3 +4,7 @@ helm:
   chart: gateway
   version: 1.24.3
   releaseName: istio-ingressgateway
+dependsOn:
+  fleet-deployment-deploy-istio-using-fleet-istio-base       ### Format: <GITREPO-NAME>-<BUNDLE_PATH> with all path separators replaced by "-"
+  fleet-deployment-deploy-istio-using-fleet-istio-istiod
+  
