@@ -1,4 +1,4 @@
-### I had installed Kiali, Prometheus and Grafana compatible with Istio release-1.24
+#### I had installed Kiali, Prometheus and Grafana compatible with Istio release-1.24
 
 You can refere below provided helm command and kubernetes manifests to Install Istio and Addons Kiali, Prometheus and Grafana
 
