@@ -7,7 +7,7 @@ targetCustomizations:
   helm:
     chart: base
     releaseName: istio-base
-- name: charts/Install-Istiod
+- name: Install-Istiod
   helm:
     chart: istiod
     releaseName: istiod
