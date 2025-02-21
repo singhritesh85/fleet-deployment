@@ -1,0 +1,5 @@
+defaultNamespace: istio-system
+helm: 
+  repo: https://istio-release.storage.googleapis.com/charts
+  chart: base
+  releaseName: istio-base
