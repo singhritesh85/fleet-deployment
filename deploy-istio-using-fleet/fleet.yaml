@@ -20,7 +20,6 @@ targetCustomizations:
   helm:
     chart: gateway
     releaseName: istio-egressgateway
-targetCustomizations:
 - name: Install-addons
   yaml:
     addons:
