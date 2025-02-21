@@ -1,24 +1,27 @@
 defaultNamespace: istio-system
 helm: 
   repo: https://istio-release.storage.googleapis.com/charts
-  version: 1.24.3
 targetCustomizations:
 - name: Install-Istio-Base
   helm:
     chart: base
     releaseName: istio-base
+    version: 1.24.3
 - name: Install-Istiod
   helm:
     chart: istiod
     releaseName: istiod
+    version: 1.24.3
 - name: Install-Istioingressgateway
   helm:
     chart: gateway
     releaseName: istio-ingressgateway
+    version: 1.24.3
 - name: Install-Istioegressgateway
   helm:
     chart: gateway
     releaseName: istio-egressgateway
+    version: 1.24.3
 - name: Install-addons
   yaml:
     addons:
