@@ -2,27 +2,23 @@ defaultNamespace: istio-system
 targetCustomizations:
 - name: Install-Istio-Base
   helm:
-    repo_url: https://istio-release.storage.googleapis.com/charts
-    repo_name: istio
-    chart: base
+    repo: https://istio-release.storage.googleapis.com/charts
+    chart: istio/base
     releaseName: istio-base
 - name: Install-Istiod
   helm:
-    repo_url: https://istio-release.storage.googleapis.com/charts
-    repo_name: istio
-    chart: istiod
+    repo: https://istio-release.storage.googleapis.com/charts
+    chart: istio/istiod
     releaseName: istiod
 - name: Install-Istioingressgateway
   helm:
-    repo_url: https://istio-release.storage.googleapis.com/charts
-    repo_name: istio
-    chart: gateway
+    repo: https://istio-release.storage.googleapis.com/charts
+    chart: istio/gateway
     releaseName: istio-ingressgateway
 - name: Install-Istioegressgateway
   helm:
-    repo_url: https://istio-release.storage.googleapis.com/charts
-    repo_name: istio
-    chart: gateway
+    repo: https://istio-release.storage.googleapis.com/charts
+    chart: istio/gateway
     releaseName: istio-egressgateway
 - name: Install-addons
   yaml:
