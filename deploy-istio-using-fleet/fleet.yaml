@@ -3,22 +3,26 @@ targetCustomizations:
 - name: Install-Istio-Base
   helm:
     repo: https://istio-release.storage.googleapis.com/charts
-    chart: istio/base
+    chart: base
+    version: 1.24.3
     releaseName: istio-base
 - name: Install-Istiod
   helm:
     repo: https://istio-release.storage.googleapis.com/charts
-    chart: istio/istiod
+    chart: istiod
+    version: 1.24.3
     releaseName: istiod
 - name: Install-Istioingressgateway
   helm:
     repo: https://istio-release.storage.googleapis.com/charts
-    chart: istio/gateway
+    chart: gateway
+    version: 1.24.3
     releaseName: istio-ingressgateway
 - name: Install-Istioegressgateway
   helm:
     repo: https://istio-release.storage.googleapis.com/charts
-    chart: istio/gateway
+    chart: gateway
+    version: 1.24.3
     releaseName: istio-egressgateway
 - name: Install-addons
   yaml:
