@@ -7,4 +7,4 @@ helm:
 dependsOn:
   fleet-deployment-deploy-istio-using-fleet-istio-base       ### Format: <GITREPO-NAME>-<BUNDLE_PATH> with all path separators replaced by "-"
   fleet-deployment-deploy-istio-using-fleet-istio-istiod
-  
+  fleet-deployment-deploy-istio-using-fleet-istio-egressgateway
