@@ -17,8 +17,8 @@ defaultNamespace: kubewarden
     version: "5.9.0" ### Specify the desired version
     targetNamespace: kubewarden
     values:
-    dependsOn:
-    - name: kubewarden-crds
+  dependsOn:
+  - name: kubewarden-crds
 # Kubewarden Defaults (optional, but recommended)
 - name: kubewarden-defaults
   helm:
@@ -28,5 +28,5 @@ defaultNamespace: kubewarden
     version: "3.9.0" # Specify the desired version
     targetNamespace: kubewarden
     values:
-    dependsOn:
-    - name: kubewarden-controller
+  dependsOn:
+  - name: kubewarden-controller
