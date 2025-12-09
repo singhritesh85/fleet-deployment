@@ -2,6 +2,7 @@ defaultNamespace: kubewarden
 helm:
   # Kubewarden Crds
   - name: kubewarden-crds
+    releaseName: kubewarden-crds
     chart: kubewarden/kubewarden-crds
     repo: https://charts.kubewarden.io
     version: "1.23.0" ### Specify the desired version
@@ -9,6 +10,7 @@ helm:
     createNamespace: true
   # Kubewarden Controller
   - name: kubewarden-controller
+    releaseName: kubewarden-controller
     chart: kubewarden/kubewarden-controller
     repo: https://charts.kubewarden.io
     version: "5.9.0" ### Specify the desired version
@@ -17,6 +19,7 @@ helm:
       - name: kubewarden-crds
   # Kubewarden Defaults (optional, but recommended)
   - name: kubewarden-defaults
+    releaseName: kubewarden-defaults
     chart: kubewarden/kubewarden-defaults
     repo: https://charts.kubewarden.io
     version: "3.9.0" # Specify the desired version
