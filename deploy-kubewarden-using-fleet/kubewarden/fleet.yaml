@@ -1,25 +1,25 @@
 defaultNamespace: kubewarden
-  helmOp:
-    # Kubewarden Crds
-    - name: kubewarden-crds
-      chart: kubewarden/kubewarden-crds
-      repo: https://charts.kubewarden.io
-      version: "1.23.0" ### Specify the desired version
-      namespace: kubewarden ### Or your desired namespace
-      createNamespace: true
-    # Kubewarden Controller
-    - name: kubewarden-controller
-      chart: kubewarden/kubewarden-controller
-      repo: https://charts.kubewarden.io
-      version: "5.9.0" ### Specify the desired version
-      namespace: kubewarden
-      dependsOn:
-        - name: kubewarden-crds
-    # Kubewarden Defaults (optional, but recommended)
-    - name: kubewarden-defaults
-      chart: kubewarden/kubewarden-defaults
-      repo: https://charts.kubewarden.io
-      version: "3.9.0" # Specify the desired version
-      namespace: kubewarden
-      dependsOn:
-        - name: kubewarden-controller
+helmOp:
+  # Kubewarden Crds
+  - name: kubewarden-crds
+    chart: kubewarden/kubewarden-crds
+    repo: https://charts.kubewarden.io
+    version: "1.23.0" ### Specify the desired version
+    namespace: kubewarden ### Or your desired namespace
+    createNamespace: true
+  # Kubewarden Controller
+  - name: kubewarden-controller
+    chart: kubewarden/kubewarden-controller
+    repo: https://charts.kubewarden.io
+    version: "5.9.0" ### Specify the desired version
+    namespace: kubewarden
+    dependsOn:
+      - name: kubewarden-crds
+  # Kubewarden Defaults (optional, but recommended)
+  - name: kubewarden-defaults
+    chart: kubewarden/kubewarden-defaults
+    repo: https://charts.kubewarden.io
+    version: "3.9.0" # Specify the desired version
+    namespace: kubewarden
+    dependsOn:
+      - name: kubewarden-controller
