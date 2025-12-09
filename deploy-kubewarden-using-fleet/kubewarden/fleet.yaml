@@ -1,7 +1,7 @@
 defaultNamespace: kubewarden
 helm:
 # Kubewarden Crds
-- name: kubewarden-crds
+#- name: kubewarden-crds
     releaseName: kubewarden-crds
     chart: kubewarden-crds
     repo: https://charts.kubewarden.io
@@ -9,7 +9,7 @@ helm:
     targetNamespace: kubewarden ### Or your desired namespace
     createNamespace: true
 # Kubewarden Controller
-- name: kubewarden-controller
+#- name: kubewarden-controller
     releaseName: kubewarden-controller
     chart: kubewarden-controller
     repo: https://charts.kubewarden.io
@@ -19,7 +19,7 @@ helm:
   dependsOn:
   - name: kubewarden-crds
 # Kubewarden Defaults (optional, but recommended)
-- name: kubewarden-defaults
+#- name: kubewarden-defaults
     releaseName: kubewarden-defaults
     chart: kubewarden-defaults
     repo: https://charts.kubewarden.io
