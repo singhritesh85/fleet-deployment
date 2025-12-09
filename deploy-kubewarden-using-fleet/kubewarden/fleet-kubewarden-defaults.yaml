@@ -1,7 +1,7 @@
 defaultNamespace: kubewarden 
+- name: kubewarden-defaults
 helm:
 # Kubewarden Defaults (optional, but recommended)
-#- name: kubewarden-defaults
     releaseName: kubewarden-defaults
     chart: kubewarden-defaults
     repo: https://charts.kubewarden.io
