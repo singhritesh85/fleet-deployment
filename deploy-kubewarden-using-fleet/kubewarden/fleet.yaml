@@ -15,7 +15,6 @@ helm:
     repo: https://charts.kubewarden.io
     version: "5.9.0" ### Specify the desired version
     targetNamespace: kubewarden ### Or your desired namespace
-    values:
   dependsOn:
   - name: kubewarden-crds
 # Kubewarden Defaults (optional, but recommended)
@@ -25,6 +24,5 @@ helm:
     repo: https://charts.kubewarden.io
     version: "3.9.0" # Specify the desired version
     targetNamespace: kubewarden ### Or your desired namespace
-    values:
   dependsOn:
   - name: kubewarden-controller
