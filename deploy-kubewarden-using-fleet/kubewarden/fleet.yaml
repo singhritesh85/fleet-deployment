@@ -1,5 +1,5 @@
 defaultNamespace: kubewarden
-helmOp:
+helm:
   # Kubewarden Crds
   - name: kubewarden-crds
     chart: kubewarden/kubewarden-crds
