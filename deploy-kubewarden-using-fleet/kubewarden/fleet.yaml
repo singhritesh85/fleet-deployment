@@ -1,15 +1,4 @@
-apiVersion: fleet.cattle.io/v1alpha1
-kind: GitRepo
-metadata:
-  name: kubewarden-bootstrap
-  namespace: fleet-local
-spec:
-  repo: "https://github.com/your-org/your-fleet-repo.git"
-  branch: main
-  targets:
-  - clusterSelector:
-      matchLabels:
-        # Define labels to target specific clusters, Or leave empty to target all clusters
+defaultNamespace: kubewarden
   helmOp:
     # Kubewarden Crds
     - name: kubewarden-crds
