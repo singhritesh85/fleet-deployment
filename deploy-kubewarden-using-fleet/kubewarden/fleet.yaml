@@ -8,6 +8,7 @@ helm:
     version: "1.23.0" ### Specify the desired version
     namespace: kubewarden ### Or your desired namespace
     createNamespace: true
+    values:
   # Kubewarden Controller
   - name: kubewarden-controller
     releaseName: kubewarden-controller
@@ -15,6 +16,7 @@ helm:
     repo: https://charts.kubewarden.io
     version: "5.9.0" ### Specify the desired version
     namespace: kubewarden
+    values:
     dependsOn:
       - name: kubewarden-crds
   # Kubewarden Defaults (optional, but recommended)
@@ -24,5 +26,6 @@ helm:
     repo: https://charts.kubewarden.io
     version: "3.9.0" # Specify the desired version
     namespace: kubewarden
+    values:
     dependsOn:
       - name: kubewarden-controller
