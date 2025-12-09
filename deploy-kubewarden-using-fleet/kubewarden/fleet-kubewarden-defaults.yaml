@@ -1,0 +1,11 @@
+defaultNamespace: kubewarden 
+helm:
+# Kubewarden Defaults (optional, but recommended)
+#- name: kubewarden-defaults
+    releaseName: kubewarden-defaults
+    chart: kubewarden-defaults
+    repo: https://charts.kubewarden.io
+    version: "3.9.0" # Specify the desired version
+    targetNamespace: kubewarden ### Or your desired namespace
+    dependsOn:
+    - name: kubewarden-controller
