@@ -6,7 +6,7 @@ helm:
   chart: kubewarden/kubewarden-crds
   repo: https://charts.kubewarden.io
 #  version: "1.23.0" ### Specify the desired version
-  namespace: kubewarden ### Or your desired namespace
+  targetNamespace: kubewarden ### Or your desired namespace
   createNamespace: true
 # Kubewarden Controller
 #- name: kubewarden-controller
@@ -14,7 +14,7 @@ helm:
   chart: kubewarden/kubewarden-controller
   repo: https://charts.kubewarden.io
 #  version: "5.9.0" ### Specify the desired version
-  namespace: kubewarden
+  targetNamespace: kubewarden
   values:
   dependsOn:
   - name: kubewarden-crds
@@ -24,7 +24,7 @@ helm:
   chart: kubewarden/kubewarden-defaults
   repo: https://charts.kubewarden.io
 #  version: "3.9.0" # Specify the desired version
-  namespace: kubewarden
+  targetNamespace: kubewarden
   values:
   dependsOn:
   - name: kubewarden-controller
