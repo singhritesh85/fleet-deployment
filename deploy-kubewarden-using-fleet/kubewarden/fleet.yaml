@@ -1,0 +1,36 @@
+apiVersion: fleet.cattle.io/v1alpha1
+kind: GitRepo
+metadata:
+  name: kubewarden-bootstrap
+  namespace: fleet-local
+spec:
+  repo: "https://github.com/your-org/your-fleet-repo.git"
+  branch: main
+  targets:
+  - clusterSelector:
+      matchLabels:
+        # Define labels to target specific clusters, Or leave empty to target all clusters
+  helmOp:
+    # Kubewarden Crds
+    - name: kubewarden-crds
+      chart: kubewarden/kubewarden-crds
+      repo: https://charts.kubewarden.io
+      version: "1.23.0" ### Specify the desired version
+      namespace: kubewarden ### Or your desired namespace
+      createNamespace: true
+    # Kubewarden Controller
+    - name: kubewarden-controller
+      chart: kubewarden/kubewarden-controller
+      repo: https://charts.kubewarden.io
+      version: "5.9.0" ### Specify the desired version
+      namespace: kubewarden
+      dependsOn:
+        - name: kubewarden-crds
+    # Kubewarden Defaults (optional, but recommended)
+    - name: kubewarden-defaults
+      chart: kubewarden/kubewarden-defaults
+      repo: https://charts.kubewarden.io
+      version: "3.9.0" # Specify the desired version
+      namespace: kubewarden
+      dependsOn:
+        - name: kubewarden-controller
