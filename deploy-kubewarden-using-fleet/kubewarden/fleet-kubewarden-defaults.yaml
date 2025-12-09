@@ -1,5 +1,5 @@
 defaultNamespace: kubewarden 
-- name: kubewarden-defaults
+#- name: kubewarden-defaults
 helm:
 # Kubewarden Defaults (optional, but recommended)
     releaseName: kubewarden-defaults
