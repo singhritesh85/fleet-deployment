@@ -23,7 +23,7 @@ helm:
   releaseName: kubewarden-defaults
   chart: kubewarden/kubewarden-defaults
   repo: https://charts.kubewarden.io
-  version: "3.8.0" # Specify the desired version
+  version: "3.9.0" # Specify the desired version
   targetNamespace: kubewarden
   values:
   dependsOn:
