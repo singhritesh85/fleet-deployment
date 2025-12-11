@@ -1,5 +1,4 @@
 defaultNamespace: kubewarden
-#- name: kubewarden-crds
 helm:
 # Kubewarden Crds
     releaseName: kubewarden-crds
