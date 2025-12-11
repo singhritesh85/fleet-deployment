@@ -1,5 +1,4 @@
 defaultNamespace: kubewarden
-#- name: kubewarden-controller
 helm:
 # Kubewarden Controller
     releaseName: kubewarden-controller
