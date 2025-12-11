@@ -6,4 +6,4 @@ helm:
     repo: https://charts.kubewarden.io
     version: "1.23.0" ### Specify the desired version
     targetNamespace: kubewarden ### Or your desired namespace
-    createNamespace: true
+#   createNamespace: true
