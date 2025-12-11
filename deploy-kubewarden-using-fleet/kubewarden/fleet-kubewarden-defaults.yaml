@@ -6,5 +6,3 @@ helm:
     repo: https://charts.kubewarden.io
     version: "3.9.0" # Specify the desired version
     targetNamespace: kubewarden ### Or your desired namespace
-    dependsOn:
-    - name: kubewarden-controller
